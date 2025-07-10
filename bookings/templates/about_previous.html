@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Previous Vitopia</title>
+    <link rel="stylesheet" href="/static/about.css">
+</head>
+<body>
+    <div class="container">
+        <h1>About Previous Vitopia</h1>
+        {% if about_previous %}
+            <img src="{{ about_previous.image.url }}" alt="Previous Vitopia Image">
+            <p>{{ about_previous.description }}</p>
+        {% else %}
+            <p>Information about the previous Vitopia is not available yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

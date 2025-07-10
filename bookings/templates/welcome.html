@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Vitopia</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+    <script defer src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">
+            <a href="#">Vitopia 2025</a>
+        </div>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        <nav class="nav-links" id="nav-links">
+            <a href="{% url 'about_previous_vitopia' %}">About Vitopia</a>
+            <a href="{% url 'about_college' %}">About College</a>
+            <a href="{% url 'wishlist' %}" class="wishlist-btn">Wishlist</a>
+            <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <div class="container">
+        <div class="explore">
+            <h1>Explore Vitopia 2025</h1>
+            <div class="explore-links">
+                <a href="{% url 'events' %}" class="explore-btn">🎉 View Events</a>
+                
+
+            </div>
+        </div>
+        <div class="image">
+            <img src="{% static 'images/welcome.png' %}" alt="Welcome Image">
+        </div>
+    </div>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+    
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+    });
+    
+</script>
+</html>

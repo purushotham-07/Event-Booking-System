@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listings</title>
+    <link rel="stylesheet" href="/static/event.css">
+</head>
+<body>
+
+    <div class="event-container">
+        {% for event in events %}
+            <div class="event-card">
+                <div class="image">
+                    <img src="{{ event.image.url }}" alt="{{ event.name }}">
+                </div>
+                <div class="info">
+                    <h3>{{ event.name }}</h3>
+                    <div class="para">
+                        <p>{{ event.description }}</p>
+                    </div>
+                    
+                    <p><strong>Time:</strong> {{ event.time }}</p>
+                    <p><strong>Tickets Available:</strong> {{ event.ticket_count }}</p>
+                    <p><strong>Price:</strong> ₹{{ event.ticket_price }}</p>
+
+                    <!-- Wishlist Button -->
+                    <button class="wishlist-btn" onclick="addToWishlist({{ event.id }})">
+                        Add to Wishlist
+                    </button>
+                    
+                </div>
+            </div>
+        {% empty %}
+            <p>No events available.</p>
+        {% endfor %}
+    </div>
+
+    <script>
+        function addToWishlist(itemId) {
+            fetch(`/add_to_wishlist/${itemId}/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": getCookie("csrftoken")  // ✅ CSRF token for security
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert("Added to wishlist! ✅");
+                } else if (data.status === "info") {
+                    alert("Already in wishlist!");
+                } else {
+                    alert("Error: " + data.message);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+        
+        // ✅ Function to get CSRF token from cookies
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== "") {
+                const cookies = document.cookie.split(";");
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+
+</body>
+</html>

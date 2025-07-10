@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About College</title>
+    <link rel="stylesheet" href="/static/about.css">
+</head>
+<body>
+    <div class="container">
+        {% if about_college %}
+            <img src="{{ about_college.image.url }}" alt="College Image">
+            <div class="text-content">
+                <h1>VIT-AP</h1>
+                <p>{{ about_college.description }}</p>
+            </div>
+        {% else %}
+            <div class="text-content">
+                <h1>VIT-AP</h1>
+                <p>Information about the college is not available yet.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

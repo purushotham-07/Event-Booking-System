@@ -1,0 +1,205 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Wishlist Container */
+.wishlist-container {
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Wishlist Header */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Wishlist Items */
+.wishlist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Wishlist Item */
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+}
+
+/* Event Image */
+.wishlist-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Event Details */
+.event-details {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.event-details h3 {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Remove Button */
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+/* Total Price Section */
+.total-section {
+    padding: 15px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.total-section h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Book All Button */
+.book-all-btn {
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.book-all-btn:hover {
+    background-color: #218838;
+}
+
+/* Empty Wishlist */
+.empty-wishlist {
+    text-align: center;
+    padding: 20px;
+}
+
+.empty-wishlist img {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.empty-wishlist p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wishlist-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .wishlist-item {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .wishlist-item img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .event-details {
+        text-align: left;
+    }
+
+    .remove-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .total-section {
+        padding: 10px;
+    }
+
+    .book-all-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .wishlist-container {
+        padding: 10px;
+    }
+
+    .wishlist-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .wishlist-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .event-details h3 {
+        font-size: 14px;
+    }
+
+    .event-details p {
+        font-size: 12px;
+    }
+
+    .remove-btn {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    .book-all-btn {
+        font-size: 14px;
+    }
+}
